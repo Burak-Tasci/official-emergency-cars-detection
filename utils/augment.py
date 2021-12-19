@@ -28,6 +28,7 @@ def main():
         imaugs.HFlip(), imaugs.RandomAspectRatio(), 
         imaugs.RandomBlur(), imaugs.RandomBrightness(),
         imaugs.RandomNoise(), imaugs.RandomPixelization(),
+        imaugs.RandomRotation(max_degrees=20), imaugs.ApplyPILFilter(),
         imaugs.Saturation(random_value()), imaugs.Contrast(random_value()),
         imaugs.ShufflePixels(0.2),
         ]
