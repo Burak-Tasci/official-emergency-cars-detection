@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import glob
 import augly.image as imaugs
 import argparse
@@ -52,7 +51,5 @@ def main():
 
 if __name__ == "__main__":
     main()
-=======
-import augly
 
->>>>>>> e9212d8 (requirements.txt added, .gitignore updated)
+
