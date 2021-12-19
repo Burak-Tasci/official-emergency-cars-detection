@@ -37,13 +37,12 @@ def main():
              glob.glob(source+"\\*.jpeg") + \
              glob.glob(source+"\\*.png")
 
-    print(len(images))
 
     for count,file in enumerate(images):
         img = Image.open(file)
         for i in range(depth):
             augmented = augmentations[random.randint(0,len(augmentations)-1)](img)
-            augmented.save(output+"\\"+str(count)+str(i)+"."+file.split(".")[-1])
+            augmented.save(output+"\\augmented"+str(count)+str(i)+"."+file.split(".")[-1])
 
 
 
