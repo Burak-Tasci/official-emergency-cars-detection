@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+<<<<<<< HEAD
+=======
+# Flask stuff:
+instance/
+.webassets-cache
+
+>>>>>>> e9212d8 (requirements.txt added, .gitignore updated)
 # Jupyter Notebook
 .ipynb_checkpoints
 
@@ -16,4 +23,9 @@ env.bak/
 venv.bak/
 
 # To not push dataset
+<<<<<<< HEAD
 official-emergency/
+=======
+official-emergency/
+
+>>>>>>> e9212d8 (requirements.txt added, .gitignore updated)
