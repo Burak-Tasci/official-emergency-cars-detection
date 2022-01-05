@@ -1,9 +1,10 @@
 import glob
 import json
+from progress.bar import IncrementalBar
 
 CLASSES = ["Ambulance", "Police", "Fire Service"]
-LABELS_DIR = "./examples/"
-OUTPUT_DIR = "./output/"
+LABELS_DIR = "./official-emergency/emergency/labels/"
+OUTPUT_DIR = "./official-emergency/emergency/YOLO-labels/"
 
 
 def formatToYolo(points, boundingBox, tag, size):
@@ -34,7 +35,11 @@ def formatToYolo(points, boundingBox, tag, size):
 
 
 def main():
-    for file in glob.glob(LABELS_DIR+"*.json"):
+
+    files = glob.glob(LABELS_DIR+"*.json")
+    bar = IncrementalBar('Converting...', max = len(files))
+
+    for file in files:
         data = json.load(open(file))
         regions = data["regions"]
         size = data["asset"]["size"]
@@ -42,11 +47,14 @@ def main():
         filename = filename  + ".txt"
         labelFile = open(OUTPUT_DIR+filename,"w+")
         for region in regions:
+            # Extracting attributes
             attributes = formatToYolo(region["points"], region["boundingBox"], region["tags"], size)
             attributes = " ".join(str(item) for item in attributes) + "\n"
+            # Writing to file
             labelFile.write(attributes)
-            
         labelFile.close()
+        bar.next()
+    bar.finish()
 
 
 
