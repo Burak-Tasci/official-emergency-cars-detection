@@ -4,6 +4,7 @@ import argparse
 import random
 from PIL import Image
 from progress.bar import IncrementalBar
+import sys
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-s", "--source", help="Path of dataset directory", required=True)
