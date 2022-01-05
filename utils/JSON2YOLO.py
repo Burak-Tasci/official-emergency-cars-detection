@@ -44,6 +44,7 @@ def main():
         regions = data["regions"]
         size = data["asset"]["size"]
         filename = data["asset"]["name"][:-4]
+        print(f"Processing json file: {filename}",end="\r")
         filename = filename  + ".txt"
         labelFile = open(OUTPUT_DIR+filename,"w+")
         for region in regions:
