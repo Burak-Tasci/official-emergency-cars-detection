@@ -1,18 +1,16 @@
 import time
 from object_detection.utils import label_map_util
-from object_detection.utils import visualization_utils as viz_utils
 import tensorflow as tf
 import numpy as np
-import os
+from visualize import visualize_detections
 from PIL import Image
-import matplotlib.pyplot as plt
+import os
 import warnings
-
-from 
 warnings.filterwarnings('ignore')   # Suppress Matplotlib warnings
 
-PATH_TO_SAVED_MODEL = "./trained_model/saved_model/"
-PATH_TO_LABELS = "./data/emergency_labelmap.pbtxt"
+API_PATH = "C://Users/ABRA/Desktop/Projects/ObjectDetection/models/research/object_detection/"
+PATH_TO_SAVED_MODEL =  API_PATH + "trained_model/saved_model/"
+PATH_TO_LABELS = API_PATH + "data/emergency_labelmap.pbtxt"
 
 print('Loading model...', end='')
 start_time = time.time()
@@ -26,13 +24,6 @@ print('Done! Took {} seconds'.format(elapsed_time))
 
 category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS,
                                                                     use_display_name=True)
-
-TRESHOLD = .30
-MAX_BOXES_TO_DRAW = 10
-
-
-
-
 
 def load_image_into_numpy_array(path):
     """Load an image from file into a numpy array.
@@ -49,7 +40,7 @@ def load_image_into_numpy_array(path):
     """
     return np.array(Image.open(path))
 
-image_path = "./test_images/4.jpg"
+image_path = API_PATH + "test_images/5.jpg"
 
 print('Running inference for {}... '.format(image_path), end='')
 
@@ -76,20 +67,16 @@ detections['detection_classes'] = detections['detection_classes'].astype(np.int6
 
 image_np_with_detections = image_np.copy()
 
-# viz_utils.visualize_boxes_and_labels_on_image_array(
-#         image_np_with_detections,
-#         detections['detection_boxes'],
-#         detections['detection_classes'],
-#         detections['detection_scores'],
-#         category_index,
-#         use_normalized_coordinates=True,
-#         max_boxes_to_draw=200,
-#         min_score_thresh=.30,
-#         agnostic_mode=False)
+os.system("cls")
+print(detections["detection_scores"])
+print(detections["detection_boxes"])
+print(detections["detection_classes"])
+visualize_detections(image_np_with_detections, 
+                    detections["detection_boxes"],
+                    detections["detection_scores"],
+                    detections['detection_classes'],
+                    category_index)
 
-# plt.figure()
-# plt.imshow(image_np_with_detections)
-# plt.show()
 
 
 print('Done')
