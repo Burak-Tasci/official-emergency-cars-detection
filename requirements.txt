@@ -1,1 +1,7 @@
 augly==0.2.1
+detecto==1.2.1
+matplotlib
+numpy
+pandas
+PIL
+tensorflow==2.6.0
