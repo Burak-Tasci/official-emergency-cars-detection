@@ -8,7 +8,7 @@ To avoid emergency and official cars' time waste against traffic and other thing
 ## Models Location
 - <a href="https://drive.google.com/file/d/1qurl5GqStEKmuWf4OZMKISWdF7qwqPRZ/view?usp=sharing">Emergency Cars Model</a>
 - <a href="https://drive.google.com/file/d/1WVJ_dsd857GyzZwT3xYs1hrhs29lKYPi/view?usp=sharing">Vehicle Plate Model</a>
-- 
+
 ## How To Run
 1. run ```pip install -r requirements.txt```
 2. Readyyy!!!
