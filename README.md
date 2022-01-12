@@ -11,4 +11,5 @@ To avoid emergency and official cars' time waste against traffic and other thing
 
 ## How To Run
 1. run ```pip install -r requirements.txt```
-2. Readyyy!!!
+2. create models directory and download models to inside of it
+3. Readyyy!!!
